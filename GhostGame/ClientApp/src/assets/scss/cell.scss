@@ -1,0 +1,10 @@
+@import "_mixin.scss";
+
+.cell {
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}

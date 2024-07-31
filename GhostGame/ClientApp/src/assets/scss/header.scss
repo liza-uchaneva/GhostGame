@@ -1,0 +1,13 @@
+@import "_mixin.scss";
+
+.header {
+    &__wrapper {
+        padding-top: 46px;
+        @include lineSpaceBetween(0);
+        position: relative;
+    }
+
+    &__text {
+        color: $colorText;
+    }
+}
