@@ -35,11 +35,6 @@
                         }, 100);
                     });
                 }
-                //ghostElement.addEventListener('animationend', () => {
-                //    ghostElement.classList.remove('fly');
-                //    shadowElement.classList.remove('disappear');
-                //    mouthElement.classList.remove('openMouth');
-                //});
             }
         },
     };

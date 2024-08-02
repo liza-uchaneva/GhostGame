@@ -1,81 +1,101 @@
-.window-ghost-container {
+.windowGhost {
     background: none;
     padding-top: 50px;
     padding-left: 10px;
+    transform: translateY(60px);
+    animation: lookOut 1.5s infinite;
+
+    &__body {
+        width: 50px;
+        height: 60px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+        opacity: 1;
+    }
+
+    &__eyes {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 20px 0 0;
+        width: 30px;
+        height: 5px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+
+    &__eyes::before,
+    &__eyes::after {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 3px;
+        background: #252c49;
+        border-radius: 50%;
+        animation: eyeBlink 3200ms infinite;
+    }
+
+    &__mouth {
+        background: #252c49;
+        width: 10px;
+        margin: 7px auto 0;
+        height: 1px;
+    }
+
+    &__feet {
+        position: absolute;
+        display: flex;
+        bottom: -9px;
+        width: 50px;
+        height: 18px;
+        background: none;
+    }
+
+    &__feet > *,
+    &__feet::before,
+    &__feet::after {
+        content: ' ';
+        width: 18px;
+        height: 18px;
+        background: #f2fbf1;
+        border-radius: 50%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 }
 
-.window-ghost {
-    width: 40%;
-    height: 40%;
-    animation: lookOut 2s infinite;
-    background: none;
-}
-
-.window-ghost-body {
-    width: 50px;
-    height: 60px;
-    background: #f2fbf1;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-    opacity: 1;
-}
-
-.window-ghost-eyes {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 20px 0 0;
-    width: 30px;
-    height: 5px;
-    background: #f2fbf1;
-    border-top-left-radius: 45px;
-    border-top-right-radius: 45px;
-}
-
-.window-ghost-eyes::before,
-.window-ghost-eyes::after {
-    content: ' ';
-    display: block;
-    width: 3px;
-    height: 3px;
-    background: #252c49;
-    border-radius: 50%;
-    animation: eyeBlink 3200ms infinite;
-}
-
-.window-ghost-mouth {
-    background: #252c49;
-    margin: 7px auto 0;
-    width: 10px;
-    height: 1px;
-}
-
-.window-ghost-feet {
-    position: absolute;
-    display: flex;
-    bottom: -9px;
-    width: 50px;
-    height: 18px;
-    background: none;
-}
-
-.window-ghost-feet > *,
-.window-ghost-feet::before,
-.window-ghost-feet::after {
-    content: ' ';
-    width: 18px;
-    height: 18px;
-    background: #f2fbf1;
-    border-radius: 50%;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
 @keyframes lookOut {
     0%, 100% {
-        transform: translateY(40px);
+        transform: translateY(60px);
     }
 
     50% {
         transform: translateY(-30px);
+    }
+}
+
+@keyframes flyAway {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes openMouth {
+    from {
+        height: 2px;
+        width: 40px;
+        border-radius: 0%;
+    }
+
+    to {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
     }
 }

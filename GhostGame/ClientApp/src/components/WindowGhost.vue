@@ -1,27 +1,57 @@
 <template>
-    <div class="window-ghost-container">
-        <div class="window-ghost">
-            <div class="window-ghost-body">
-                <div class="window-ghost-eyes"></div>
-                <div class="window-ghost-mouth"></div>
-                <div class="window-ghost-feet">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+    <div id="windowGhost" 
+         class="windowGhost" 
+         v-on:click="$emit('ghostCollected',FlyAwayAndReturn())" 
+         ref="windowGhost" 
+         :style="{ animationDelay: delay + 's' }">
+
+        <div id="ghost" class="windowGhost__body"  ref="ghost">
+            <div class="windowGhost__eyes"></div>
+            <div id="mouth" class="windowGhost__mouth" ref="mouth"></div>
+            <div class="windowGhost__feet">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     </div>
 </template>
 
-
-
 <script>
-    export default {
-        methods: {
+    import { defineComponent, ref } from 'vue';
 
+    export default defineComponent({
+        setup() {
+            const delay = ref(Math.random() * 3);
+            return {
+                delay,
+            };
         },
-    };
-</script>
+        methods: {
+            FlyAwayAndReturn() {
+                const ghostElement = this.$refs.ghost;
+                const mouthElement = this.$refs.mouth;
 
-<style lang="scss" scoped></style>
+                if (ghostElement && mouthElement) {
+                    mouthElement.classList.add('openMouth');
+                    setTimeout(() => {
+                        ghostElement.classList.add('fly');
+                    }, 50);
+                }
+
+                mouthElement.addEventListener('animationend', () => {
+                    setTimeout(() => {
+                        ghostElement.classList.remove('fly');
+                        mouthElement.classList.remove('openMouth');
+                    }, 500);
+                });
+
+                if (ghostElement) {
+                    setTimeout(() => {
+                        ghostElement.classList.add('lookOut');
+                    }, 500);
+                }
+            },
+        },
+    });
+</script>

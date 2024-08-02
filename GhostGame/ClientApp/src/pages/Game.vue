@@ -1,13 +1,13 @@
 <template>
-    <Fuild />
+    <Game />
 </template>
 
 <script>
-    import Fuild from "@/components/Fuild.vue"; 
+    import Game from "@/components/Game.vue"; 
 
     export default {
         components: {
-            Fuild,
+            Game,
         },
     };
 </script>

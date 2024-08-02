@@ -2,7 +2,7 @@
     <div id="app">
         <div class="cell">
             <div class="window">
-                <WindowGhost />
+                <WindowGhost @ghostCollected="emitGhostCollected"/>
                 <div class="window__sillhorizontal"></div>
                 <div class="window__sillvertical"></div>
                 <div class="window__boxToHide"></div>
@@ -19,6 +19,9 @@
             WindowGhost
         },
         methods: {
+            emitGhostCollected() {
+                this.$emit('ghostCollected');
+            },
         },
     };
 </script>
