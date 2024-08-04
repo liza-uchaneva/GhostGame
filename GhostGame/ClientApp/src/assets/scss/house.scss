@@ -1,0 +1,17 @@
+@import "_mixin.scss";
+
+.house {
+    position: relative;
+    background-color: none;
+
+    &__roof {
+    }
+
+    &__frontWall {
+        background-color: $colorFrontWall;
+        border: 20px $colorFrontWall;
+    }
+
+    &__backWall {
+    }
+}

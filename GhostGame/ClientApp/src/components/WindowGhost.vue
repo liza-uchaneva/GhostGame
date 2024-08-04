@@ -1,11 +1,9 @@
 <template>
     <div id="windowGhost" 
          class="windowGhost" 
-         v-on:click="$emit('ghostCollected',FlyAwayAndReturn())" 
          ref="windowGhost" 
          :style="{ animationDelay: delay + 's' }">
-
-        <div id="ghost" class="windowGhost__body"  ref="ghost">
+        <div id="ghost" class="windowGhost__body" v-on:click="$emit('ghostCollected',FlyAwayAndReturn())"  ref="ghost">
             <div class="windowGhost__eyes"></div>
             <div id="mouth" class="windowGhost__mouth" ref="mouth"></div>
             <div class="windowGhost__feet">
@@ -22,7 +20,7 @@
 
     export default defineComponent({
         setup() {
-            const delay = ref(Math.random() * 3);
+            const delay = ref(Math.random() * 5);
             return {
                 delay,
             };
@@ -43,7 +41,7 @@
                     setTimeout(() => {
                         ghostElement.classList.remove('fly');
                         mouthElement.classList.remove('openMouth');
-                    }, 500);
+                    }, 1000);
                 });
 
                 if (ghostElement) {

@@ -13,14 +13,14 @@
     }
 
     &__sillhorizontal {
-        top: 50%;
+        top: 45%;
         height: 2px;
         width: 70px;
     }
 
     &__sillvertical {
         top: 0;
-        left: 50%;
+        left: 55%;
         height: 110px;
         width: 2px;
     }
@@ -29,7 +29,7 @@
         background: $colorBackground;
         height: 80px;
         width: 70px;
-        position:absolute
+        position: absolute
     }
 }
 
