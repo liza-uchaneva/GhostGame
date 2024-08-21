@@ -2,10 +2,12 @@
     <div id="app">
         <div class="cell">
             <div class="window">
-                <WindowGhost @ghostCollected="emitGhostCollected"/>
+                <WindowGhost @ghostCollected="emitGhostCollected" />
                 <div class="window__sillhorizontal"></div>
                 <div class="window__sillvertical"></div>
-                <div class="window__boxToHide"></div>
+                <div class="window__boxToHide">
+                    <div class="window__bench"></div>
+                </div>
             </div>
         </div>
     </div>

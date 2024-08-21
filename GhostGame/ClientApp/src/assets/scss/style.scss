@@ -1,22 +1,30 @@
 @import "../scss/vars";
-@import "../scss/header";
 @import "../scss/start";
 @import "../scss/startGhost";
-@import "../scss/window";
 @import "../scss/windowGhost";
+@import "../scss/endGhost";
 @import "../scss/cell";
 @import "../scss/fuild";
 @import "../scss/scoreBoard";
 @import "../scss/house";
+@import "../scss/game";
+@import "../scss/start";
+@import "../scss/gameoverScreen";
 
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    background-color: $colorBackground;
+    background-image: url(img/f1.png);
 }
 
 html {
     scroll-behavior: smooth;
+    background-color: $colorBackground;
+}
+
+body {
 }
 
 a {
@@ -30,6 +38,7 @@ ul {
 li {
     list-style-type: none;
 }
+
 .center {
     padding-left: calc(50% - $siteWidthMobile / 2);
     padding-right: calc(50% - $siteWidthMobile / 2);

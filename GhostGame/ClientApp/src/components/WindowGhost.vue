@@ -20,7 +20,7 @@
 
     export default defineComponent({
         setup() {
-            const delay = ref(Math.random() * 5);
+            const delay = ref(Math.random(2) * 10);
             return {
                 delay,
             };
@@ -41,13 +41,13 @@
                     setTimeout(() => {
                         ghostElement.classList.remove('fly');
                         mouthElement.classList.remove('openMouth');
-                    }, 1000);
+                    }, 1500);
                 });
 
                 if (ghostElement) {
                     setTimeout(() => {
                         ghostElement.classList.add('lookOut');
-                    }, 500);
+                    }, 50);
                 }
             },
         },

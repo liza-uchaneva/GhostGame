@@ -1,17 +1,219 @@
 @import "_mixin.scss";
+.street{
+    display:flex;
+    flex-direction:row;
+}
 
 .house {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
     position: relative;
-    background-color: none;
+    justify-content: flex-start;
+    z-index: 10;
+
 
     &__roof {
+        width: 300px;
+        height: 100px;
+        background-color: $colorRoof;
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 
     &__frontWall {
         background-color: $colorFrontWall;
-        border: 20px $colorFrontWall;
+        flex-grow: 1;
+        height: calc(100vh / 2);
+        min-height: 520px;
+        min-width: 300px;
+        box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 6px 0px inset, rgba(0, 0, 0, 0.3) -3px -3px 6px 1px inset;
     }
 
     &__backWall {
+        transform: rotateY(90deg) translateZ(150px);
+        background-color: $colorFrontWall;
     }
+
+    &__pipes {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: $colorRoof;
+        transform: translateX(10%);
+        left: 30%;
+        top: -30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    &__pipes::before,
+    &__pipes::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 15px;
+        top: 15px;
+        background-color: $colorRoof;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    &__pipes::before {
+        left: 150px;
+    }
+
+    &__pipes::after {
+        left: 60px;
+    }
+}
+
+
+.window {
+    position: relative;
+    height: 110px;
+    width: 70px;
+    background: $colorWindowLight;
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+
+    &__sillhorizontal, &__sillvertical, &__bench {
+        content: '';
+        position: absolute;
+        background: $colorWindowsill;
+    }
+
+    &__bench {
+        top: 5%;
+        height: 6px;
+        width: 70px;
+    }
+
+    &__sillhorizontal {
+        top: 45%;
+        height: 3px;
+        width: 70px;
+    }
+
+    &__sillvertical {
+        top: 0;
+        left: 55%;
+        height: 110px;
+        width: 3px;
+    }
+
+    &__boxToHide {
+        background: $colorFrontWall;
+        height: 70px;
+        width: 70px;
+        position: absolute;
+    }
+}
+
+.tree {
+    &__first {
+        top: 0;
+        left: 0;
+        background-image: url(../img/f4.png);
+        background-repeat: repeat-x;
+        position: absolute;
+        height: 580px;
+        width: 100%;
+        z-index: 2;
+        opacity: 0.2;
+    }
+
+    &__sec {
+        top: 5%;
+        left: 25%;
+        background-image: url(../img/f12.png);
+        background-repeat: repeat-x;
+        position: absolute;
+        height: 580px;
+        width: 100%;
+        z-index: 2;
+        opacity: 0.3;
+    }
+
+    &__third {
+        top: 10%;
+        left: 2%;
+        background-image: url(../img/f4.png);
+        background-repeat: repeat-x;
+        position: absolute;
+        height: 580px;
+        width: 100%;
+        z-index: 2;
+        opacity: 0.5;
+    }
+
+    &__four{
+        top: 13%;
+        left: -8%;
+        background-image: url(../img/f12.png);
+        background-repeat: repeat-x;
+        position: absolute;
+        height: 580px;
+        width: 100%;
+        z-index: 2;
+        opacity: 0.5;
+    }
+}
+.mist {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 99;
+    padding: 0;
+}
+
+.mist span {
+    position: relative;
+    margin: 0 15px;
+    width: 100%;
+    height: 50px;
+    background: #ccc;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(20px);
+    animation: mist 25s linear infinite;
+    animation-delay: calc(var(--i) * -0.75s);
+}
+
+@keyframes mist {
+    0% {
+        transform: translateX(0) scaleX(1);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateX(-120px) translateY(-60px) scaleX(8) scaleY(2);
+        opacity: 0.5;
+    }
+
+    70% {
+        opacity: 0.25;
+    }
+
+    100% {
+        transform: translateX(150px) translateY(-120px) scaleX(16) scaleY(6);
+    }
+}
+
+.ground {
+    position: absolute;
+    bottom: 0%;
+    left: -50%;
+    z-index: 1;
+    background: linear-gradient(to top, #070b11, #1d252f);
+    width: 200%;
+    height: 30%;
+    opacity: 0.9;
+    filter: blur(2px);
+    box-shadow: 0px -5px 40px rgba(0, 0, 0, 0.7);
+    background-size: cover;
 }
