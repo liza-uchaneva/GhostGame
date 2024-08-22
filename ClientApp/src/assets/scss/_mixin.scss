@@ -49,21 +49,3 @@
     display: flex;
     gap: $gap;
 }
-
-@mixin Picture {
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-@mixin Hr {
-    border: none;
-    height: 2px;
-    color: $colorOrange;
-    background-color: $colorOrange;
-}
-
-@mixin PointingAtTHEButton($color) {
-    outline: none;
-    background-color: $color;
-    transition: all 0.5s ease;
-}

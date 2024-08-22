@@ -1,0 +1,364 @@
+// Start Ghost
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+#spooky {
+    margin: 10% auto;
+    width: 80%;
+    height: 80%;
+    animation: floaty 2s infinite;
+}
+
+#spooky #body {
+    position: relative;
+    margin: 50px auto 0;
+    width: 180px;
+    height: 220px;
+    background: #f2fbf1;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    opacity: 0.7;
+}
+
+#spooky #body:before {
+    left: -18px;
+}
+
+#spooky #body:after {
+    right: -18px;
+}
+
+#spooky #body #eyes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 80px 0 0;
+    width: 90px;
+    height: 20px;
+    background: #f2fbf1;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
+
+#spooky #body #eyes:before,
+#spooky #body #eyes:after {
+    content: ' ';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #252c49;
+    border-radius: 50%;
+    animation: eyeBlink 3200ms infinite;
+}
+
+#spooky #body #mouth {
+    background: #252c49;
+    margin: 15px auto 0;
+    width: 40px;
+    height: 2px;
+}
+
+#spooky #body #feet {
+    position: absolute;
+    display: flex;
+    bottom: -18px;
+    width: 180px;
+    height: 36px;
+}
+
+#spooky #body #feet > *,
+#spooky #body #feet::before,
+#spooky #body #feet::after {
+    content: ' ';
+    width: 36px;
+    height: 36px;
+    background: #f2fbf1;
+    border-radius: 50%;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#shadow {
+    margin: 0 30px 0;
+    background: black;
+    width: 180px;
+    height: 40px;
+    border-radius: 50%;
+    animation: zoomy 2s infinite;
+}
+
+#ghost.fly {
+    animation: flyAway 2.5s forwards;
+}
+#shadow.disappear {
+    animation: decrease 1.5s forwards;
+}
+#mouth.openMouth {
+    animation: mouthOpen 0.5s forwards;
+}
+
+@keyframes floaty {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes eyeBlink {
+    0%, 30%, 36%, 100% {
+        transform: scale(1);
+    }
+
+    32%, 34% {
+        transform: scale(1,0);
+    }
+}
+
+@keyframes zoomy {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes flyAway {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes decrease {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes mouthOpen {
+    from {
+        height: 2px;
+        width: 40px;
+        border-radius: 0%;
+    }
+
+    to {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+}
+
+// Window Ghost
+.windowGhost {
+    background: none;
+    padding-top: 50px;
+    padding-left: 10px;
+    transform: translateY(60px);
+    animation: lookOut 3s infinite;
+    cursor: crosshair;
+
+    &__body {
+        width: 50px;
+        height: 60px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+        opacity: 1;
+    }
+
+    &__eyes {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 20px 0 0;
+        width: 30px;
+        height: 5px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+
+    &__eyes::before,
+    &__eyes::after {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 3px;
+        background: #252c49;
+        border-radius: 50%;
+        animation: eyeBlink 3200ms infinite;
+    }
+
+    &__mouth {
+        background: #252c49;
+        width: 10px;
+        margin: 7px auto 0;
+        height: 1px;
+    }
+
+    &__feet {
+        position: absolute;
+        display: flex;
+        bottom: -9px;
+        width: 50px;
+        height: 18px;
+        background: none;
+    }
+
+    &__feet > *,
+    &__feet::before,
+    &__feet::after {
+        content: ' ';
+        width: 18px;
+        height: 18px;
+        background: #f2fbf1;
+        border-radius: 50%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}
+
+@keyframes lookOut {
+    0%, 20%, 50%,100% {
+        transform: translateY(60px);
+    }
+
+    70% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes flyAway {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes openMouth {
+    from {
+        height: 2px;
+        width: 40px;
+        border-radius: 0%;
+    }
+
+    to {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+    }
+}
+
+// GameOver Ghost
+.endGhost {
+    background: none;
+    padding-left: 10px;
+    opacity: 0.3;
+    animation: flyInLine 3s infinite linear;
+
+    &__body {
+        width: 50px;
+        height: 60px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+        opacity: 1;
+    }
+
+    &__eyes {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 20px 0 0;
+        width: 30px;
+        height: 5px;
+        background: #f2fbf1;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+
+    &__eyes::before,
+    &__eyes::after {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 3px;
+        background: #252c49;
+        border-radius: 50%;
+        animation: eyeBlink 3200ms infinite;
+    }
+
+    &__mouth {
+        background: #252c49;
+        width: 10px;
+        margin: 7px auto 0;
+        height: 1px;
+    }
+
+    &__feet {
+        position: relative;
+        display: flex;
+        bottom: -30px;
+        width: 50px;
+        height: 18px;
+        background: none;
+    }
+
+    &__feet > *,
+    &__feet::before,
+    &__feet::after {
+        content: ' ';
+        width: 18px;
+        height: 18px;
+        background: #f2fbf1;
+        border-radius: 50%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}
+
+.collectedGhosts {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    justify-content: center;
+    min-height: 80px;
+}
+
+@keyframes flyInLine {
+    0%,100% {
+        transform: translate(0%);
+    }
+
+    50% {
+        transform: translate(100%);
+    }
+}

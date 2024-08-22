@@ -22,7 +22,6 @@
                         </Cell>
                     </div>
                 </div>
-                <div class=" house__backWall"></div>
             </div>
         </div>
 
