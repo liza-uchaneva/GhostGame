@@ -3,9 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import mkcert from 'vite-plugin-mkcert'
 import { resolve } from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-    base:'/GhostGame/',
+    base:'https://liza-uchaneva.github.io/ghost-game',
     plugins: [vue(), mkcert()],
     server: {
         https: true,
