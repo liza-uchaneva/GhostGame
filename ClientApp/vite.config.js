@@ -5,7 +5,7 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base:'/ghost-game/',
+    base:'/GhostGame/',
     plugins: [vue(), mkcert()],
     server: {
         https: true,
