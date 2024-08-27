@@ -4,7 +4,7 @@ import mkcert from 'vite-plugin-mkcert'
 import { resolve } from 'path'
 
 export default defineConfig({
-    base:'https://liza-uchaneva.github.io/ghost-game',
+    base:'GhostGame/ClientApp',
     plugins: [vue(), mkcert()],
     server: {
         https: true,
